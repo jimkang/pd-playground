@@ -1,0 +1,38 @@
+#N canvas 822 315 925 654 12;
+#X obj 101 25 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144 -1
+-1;
+#X obj 106 81 openpanel;
+#X obj 90 180 soundfiler;
+#X msg 77 131 read -resize \$1 carrierFile;
+#X obj 475 77 openpanel;
+#X obj 459 176 soundfiler;
+#X msg 446 127 read -resize \$1 infoFile;
+#N canvas 0 50 450 250 (subpatch) 0;
+#X array infoFileActualArray 240237 float 0;
+#X coords 0 1 240236 -1 200 140 1 0 0;
+#X restore 516 237 graph;
+#X obj 474 38 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144 -1
+-1;
+#X obj 316 257 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X obj 781 254 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X obj 321 296 tabplay~ carrierFile;
+#X obj 776 289 tabplay~ infoFile;
+#X obj 358 452 dac~;
+#N canvas 0 50 450 250 (subpatch) 0;
+#X array carrierFileActualArray 240237 float 0;
+#X coords 0 1 240236 -1 200 140 1;
+#X restore 28 396 graph;
+#X connect 0 0 1 0;
+#X connect 1 0 3 0;
+#X connect 3 0 2 0;
+#X connect 4 0 6 0;
+#X connect 6 0 5 0;
+#X connect 8 0 4 0;
+#X connect 9 0 11 0;
+#X connect 10 0 12 0;
+#X connect 11 0 13 0;
+#X connect 11 1 13 1;
+#X connect 12 0 13 0;
+#X connect 12 1 13 1;

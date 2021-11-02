@@ -1,0 +1,110 @@
+#N canvas 98 55 1267 685 16;
+#X obj 95 521 scope~;
+#N canvas 0 50 450 250 (subpatch) 0;
+#X array waveform 131 float 3;
+#A 0 0.998795 1 0.998795 0.995185 0.989177 0.980785 0.970031 0.95694
+0.941544 0.92388 0.903989 0.881921 0.857729 0.83147 0.803208 0.773011
+0.740952 0.707107 0.671559 0.634394 0.5957 0.555571 0.514103 0.471398
+0.427556 0.382684 0.336891 0.290286 0.242981 0.195091 0.146732 0.0980184
+0.049069 1.32679e-06 -0.0490663 -0.0980157 -0.146729 -0.195089 -0.242979
+-0.290283 -0.336888 -0.382682 -0.427554 -0.471395 -0.514101 -0.555569
+-0.595698 -0.634392 -0.671557 -0.707105 -0.74095 -0.773009 -0.803206
+-0.831468 -0.857727 -0.88192 -0.903988 -0.923879 -0.941543 -0.95694
+-0.970031 -0.980785 -0.989176 -0.995184 -0.998795 -1 -0.998796 -0.995185
+-0.989177 -0.980786 -0.970032 -0.956941 -0.941545 -0.923881 -0.903991
+-0.881923 -0.85773 -0.831471 -0.803209 -0.773013 -0.740953 -0.707109
+-0.671561 -0.634396 -0.595702 -0.555573 -0.514106 -0.4714 -0.427558
+-0.382687 -0.336893 -0.290288 -0.242984 -0.195094 -0.146734 -0.098021
+-0.0490716 -3.98038e-06 0.0490637 0.0980131 0.146726 0.195086 0.242976
+0.290281 0.336886 0.382679 0.427551 0.471393 0.514099 0.555566 0.595696
+0.63439 0.671556 0.707103 0.740948 0.773007 0.803205 0.831467 0.857726
+0.881919 0.903987 0.923878 0.941542 0.956939 0.97003 0.980784 0.989176
+0.995184 0.998795 1 0.998796;
+#X coords 0 1 131 -1 200 140 1;
+#X restore 977 338 graph;
+#N canvas 0 50 450 250 (subpatch) 0;
+#X array sample 44103 float 2;
+#X coords 0 1 44103 -1 200 140 1;
+#X restore 709 346 graph;
+#X obj 823 540 adc~;
+#X obj 822 605 tabwrite~ sample;
+#X obj 835 574 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X obj 226 280 out1~;
+#X obj 345 485 soundfiler;
+#X msg 349 410 write poodle.wav sample;
+#X msg 362 446 write schnauzer.wav sample;
+#X msg 332 341 read -resize poodle.wav sample;
+#X msg 345 377 read -resize schnauzer.wav sample;
+#X obj 66 176 tabread4~ sample;
+#X obj 63 72 phasor~;
+#X floatatom 63 39 5 0 0 0 - - -;
+#X obj 63 106 *~;
+#X obj 63 134 +~;
+#X floatatom 107 105 5 0 0 0 - - -;
+#X floatatom 108 133 5 0 0 0 - - -;
+#X msg 965 501 cosinesum 128 0 1;
+#X obj 965 530 send waveform;
+#X obj 250 94 *~ 64;
+#X obj 250 122 +~ 33;
+#X obj 250 151 tabread4~ waveform;
+#X obj 250 180 *~ -1;
+#X obj 66 205 *~;
+#X obj 843 53 +~ 0.5;
+#X obj 843 82 wrap~;
+#X obj 772 191 tabread4~ sample;
+#X obj 769 121 *~;
+#X obj 769 149 +~;
+#X floatatom 813 120 5 0 0 0 - - -;
+#X floatatom 814 148 5 0 0 0 - - -;
+#X obj 956 109 *~ 64;
+#X obj 956 137 +~ 33;
+#X obj 956 166 tabread4~ waveform;
+#X obj 956 195 *~ -1;
+#X obj 772 220 *~;
+#X obj 227 238 +~;
+#X obj 64 286 out1~;
+#X text 789 17 second phase \, 1/2 cycle ahead;
+#X text 60 12 frequency of looping;
+#X text 39 385 not overlapped;
+#X text 204 388 overlapped;
+#X text 319 87 look up 1/2 sine wave that hits zero when the phase
+wraps around, f 27;
+#X text 308 179 this is multiplied by the recorded wavetable at left
+, f 29;
+#X connect 3 0 4 0;
+#X connect 5 0 4 0;
+#X connect 8 0 7 0;
+#X connect 9 0 7 0;
+#X connect 10 0 7 0;
+#X connect 11 0 7 0;
+#X connect 12 0 25 0;
+#X connect 13 0 15 0;
+#X connect 13 0 21 0;
+#X connect 13 0 26 0;
+#X connect 14 0 13 0;
+#X connect 15 0 16 0;
+#X connect 16 0 12 0;
+#X connect 17 0 15 1;
+#X connect 18 0 16 1;
+#X connect 19 0 20 0;
+#X connect 21 0 22 0;
+#X connect 22 0 23 0;
+#X connect 23 0 24 0;
+#X connect 24 0 25 1;
+#X connect 25 0 38 0;
+#X connect 25 0 39 0;
+#X connect 26 0 27 0;
+#X connect 27 0 29 0;
+#X connect 27 0 33 0;
+#X connect 28 0 37 0;
+#X connect 29 0 30 0;
+#X connect 30 0 28 0;
+#X connect 31 0 29 1;
+#X connect 32 0 30 1;
+#X connect 33 0 34 0;
+#X connect 34 0 35 0;
+#X connect 35 0 36 0;
+#X connect 36 0 37 1;
+#X connect 37 0 38 1;
+#X connect 38 0 6 0;

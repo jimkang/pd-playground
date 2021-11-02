@@ -1,0 +1,91 @@
+#N canvas 30 90 1110 687 16;
+#X obj 78 111 phasor~;
+#X floatatom 78 77 5 0 0 0 - - -;
+#X obj 78 522 scope~;
+#N canvas 0 50 450 250 (subpatch) 0;
+#X array waveform 100 float 3;
+#A 0 -0.057143 0.0428572 0.0714286 0.0714286 0.0857144 0.1 0.128572
+0.157143 0.171429 0.214287 0.285716 0.342859 0.400002 0.414288 0.485717
+0.54286 0.585717 0.657147 0.685718 0.71429 0.771433 0.785719 0.81429
+0.828576 0.828576 0.828576 0.828576 0.81429 0.800005 0.785719 0.771433
+0.728576 0.700004 0.642861 0.600003 0.54286 0.471431 0.428574 0.342859
+0.257144 0.214287 0.142858 0.042857 -0.0714294 -0.114287 -0.17143 -0.214287
+-0.285716 -0.328574 -0.371431 -0.400003 -0.428575 -0.457146 -0.471432
+-0.500004 -0.542861 -0.571433 -0.600004 -0.61429 -0.642862 -0.657147
+-0.671433 -0.685719 -0.700005 -0.700005 -0.700005 -0.700005 -0.700005
+-0.700005 -0.700005 -0.685719 -0.671433 -0.657147 -0.628576 -0.61429
+-0.585718 -0.557147 -0.557147 -0.514289 -0.471432 -0.457146 -0.414289
+-0.371431 -0.34286 -0.285716 -0.228573 -0.17143 -0.128573 -0.0857152
+-0.0142862 0.042857 0.114286 0.171429 0.200001 0.257144 0.342859 0.400002
+0.457145 0.485717 0.600003;
+#X coords 0 1 100 -1 200 140 1;
+#X restore 359 90 graph;
+#X obj 99 326 out1~;
+#X obj 207 300 line~;
+#X obj 81 276 *~;
+#X msg 206 238 1 50;
+#X msg 213 264 0 50;
+#N canvas 0 50 450 250 (subpatch) 0;
+#X array sample 44103 float 2;
+#X coords 0 1 44103 -1 200 140 1;
+#X restore 700 363 graph;
+#X obj 790 576 adc~;
+#X obj 789 641 tabwrite~ sample;
+#X obj 802 610 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X obj 798 247 out1~;
+#X obj 329 452 soundfiler;
+#X msg 333 377 write poodle.wav sample;
+#X msg 346 413 write schnauzer.wav sample;
+#X msg 316 308 read -resize poodle.wav sample;
+#X msg 329 344 read -resize schnauzer.wav sample;
+#X obj 800 207 tabread4~ sample;
+#X obj 800 105 phasor~;
+#X floatatom 800 72 5 0 0 0 - - -;
+#X obj 800 139 *~;
+#X obj 800 167 +~;
+#X floatatom 844 138 5 0 0 0 - - -;
+#X floatatom 845 166 5 0 0 0 - - -;
+#X text 835 533 37000;
+#X text 834 504 |;
+#X text 866 508 37000+7000;
+#X obj 80 144 *~ 97;
+#X obj 80 173 +~ 1;
+#X obj 80 202 tabread4~ waveform;
+#X floatatom 187 137 5 0 0 0 - - -;
+#X msg 189 98 89.43;
+#X msg 258 101 97;
+#X text 907 140 37000;
+#X text 907 166 700;
+#X text 907 114 loop range:;
+#X text 847 577 record to "sample" wavetable, f 18;
+#X text 358 277 save/restore to "sample";
+#X text 77 35 reading from a short wavetable;
+#X text 737 28 reading from a one-second (44100-sample) recording,
+f 28;
+#X connect 0 0 29 0;
+#X connect 1 0 0 0;
+#X connect 5 0 6 1;
+#X connect 6 0 4 0;
+#X connect 6 0 2 0;
+#X connect 7 0 5 0;
+#X connect 8 0 5 0;
+#X connect 10 0 11 0;
+#X connect 12 0 11 0;
+#X connect 15 0 14 0;
+#X connect 16 0 14 0;
+#X connect 17 0 14 0;
+#X connect 18 0 14 0;
+#X connect 19 0 13 0;
+#X connect 20 0 22 0;
+#X connect 21 0 20 0;
+#X connect 22 0 23 0;
+#X connect 23 0 19 0;
+#X connect 24 0 22 1;
+#X connect 25 0 23 1;
+#X connect 29 0 30 0;
+#X connect 30 0 31 0;
+#X connect 31 0 6 0;
+#X connect 32 0 29 1;
+#X connect 33 0 32 0;
+#X connect 34 0 32 0;

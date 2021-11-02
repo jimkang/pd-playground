@@ -1,0 +1,53 @@
+#N canvas 133 112 811 797 16;
+#X obj 47 39 osc~;
+#X text 100 37 oscillator - generate a sine tone;
+#X obj 87 67 *~;
+#X floatatom 50 188 5 0 0 0 - - -;
+#X msg 49 160 bang;
+#X text 143 160 messages;
+#X msg 100 159 440;
+#X obj 48 94 line~;
+#X text 130 92 generate a ramp;
+#X obj 48 126 print;
+#X text 105 128 debugger;
+#X text 146 14 week 1;
+#X text 284 445 week 2;
+#N canvas 0 50 450 250 (subpatch) 0;
+#X array your-name-here 100 float 3;
+#A 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+0;
+#X coords 0 1 100 -1 200 140 1;
+#X restore 449 526 graph;
+#X text 495 461 arrays;
+#X obj 61 509 phasor~;
+#X obj 64 636 +;
+#X obj 60 729 adc~;
+#X obj 65 541 tabwrite~;
+#X obj 64 597 tabread4~;
+#X obj 64 695 soundfiler;
+#X text 170 693 get stuff into and out of arrays;
+#X obj 47 67 +~;
+#X text 126 67 (etc.) arithmetic;
+#X text 146 186 numbers;
+#X text 142 511 sawtooth;
+#X obj 66 570 tabread~;
+#X text 168 537 write to a table;
+#X text 159 568 read from a table;
+#X text 168 596 read from a table;
+#X text 163 727 raw audio input/output;
+#X obj 109 729 dac~;
+#X text 158 632 control arithmetic;
+#X obj 102 636 *;
+#X obj 51 216 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144 -1
+-1;
+#X text 84 213 button;
+#X obj 40 247 scope~;
+#X obj 523 131 out1~;
+#X text 498 99 audio output;
+#X text 295 224 scope;
+#X obj 123 851 peek~;
+#X text 208 853 another helper object;
+#X obj 62 757 send;
+#X text 157 757 send to an object by name;

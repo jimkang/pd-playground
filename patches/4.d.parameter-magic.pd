@@ -1,0 +1,26 @@
+#N canvas 70 92 890 626 12;
+#X floatatom 422 218 5 0 0 0 dog dog-set dog;
+#X obj 614 295 r dog;
+#X floatatom 614 319 5 0 0 0 - - -;
+#X obj 439 132 r dog;
+#X msg 439 156 set \$1;
+#X obj 439 180 s dog-set;
+#X obj 304 120 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
+1;
+#X obj 305 164 f;
+#X obj 305 188 + 3;
+#X obj 305 212 mod 10;
+#X obj 305 236 s dog;
+#X obj 305 140 metro 200;
+#X floatatom 426 306 5 0 0 0 dog dog-set dog;
+#X floatatom 653 178 5 0 0 0 cat cat-set cat;
+#X obj 599 113 setctl cat;
+#X connect 1 0 2 0;
+#X connect 3 0 4 0;
+#X connect 4 0 5 0;
+#X connect 6 0 11 0;
+#X connect 7 0 8 0;
+#X connect 8 0 9 0;
+#X connect 9 0 7 1;
+#X connect 9 0 10 0;
+#X connect 11 0 7 0;

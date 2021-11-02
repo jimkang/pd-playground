@@ -1,0 +1,8 @@
+#N canvas 185 157 814 545 16;
+#X floatatom 134 110 5 0 0 0 duckness duckness-set duckness;
+#X floatatom 161 311 5 0 0 0 duckness duckness-set duckness;
+#X obj 131 171 presetter duckness, f 9;
+#X obj 126 376 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X obj 126 396 s make-preset;
+#X connect 3 0 4 0;
