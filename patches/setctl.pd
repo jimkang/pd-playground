@@ -1,8 +1,0 @@
-#N canvas 119 159 660 346 12;
-#X obj 104 146 r \$1;
-#X msg 104 170 set \$1;
-#X obj 104 194 s \$1-set;
-#X text 67 40 wonderful but confusing abstraction to manage a number
-box controlled parameter;
-#X connect 0 0 1 0;
-#X connect 1 0 2 0;
