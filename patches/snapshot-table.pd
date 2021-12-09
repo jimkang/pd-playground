@@ -1,16 +1,16 @@
 #N canvas 0 106 1036 440 12;
 #N canvas 0 50 450 250 (subpatch) 0;
-#X array \$0-\$1 220500 float 2;
+#X array \$1-\$0 220500 float 2;
 #X coords 0 50 220500 -50 1000 140 1 0 0;
 #X restore 18 257 graph;
-#X obj 190 193 tabdump \$0-\$1;
-#X obj 53 187 tabwrite~ \$0-\$1;
 #X obj 63 126 inlet~;
 #X obj 160 32 receive take-snapshot;
 #X text 414 157 When the take-snapshot message comes \, dump the signal
 we've been writing to a table to a text file.;
 #X obj 152 113 t b b;
-#X connect 3 0 2 0;
-#X connect 4 0 6 0;
-#X connect 6 0 2 0;
-#X connect 6 1 1 0;
+#X obj 53 187 tabwrite~ \$1-\$0;
+#X obj 190 193 tabdump \$1-\$0;
+#X connect 1 0 5 0;
+#X connect 2 0 4 0;
+#X connect 4 0 5 0;
+#X connect 4 1 6 0;
