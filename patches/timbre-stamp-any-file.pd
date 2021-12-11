@@ -83,7 +83,7 @@ set 30;
 ;
 #X obj 276 556 snapshot-table 150-carrier-fft-imag-x-reduced-amp-factors
 ;
-#X obj 1069 501 mod 250;
+#X obj 1069 501 mod 100;
 #X connect 0 0 11 1;
 #X connect 0 0 74 0;
 #X connect 1 0 11 0;
