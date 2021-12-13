@@ -1,4 +1,4 @@
-#N canvas 0 110 1367 644 12;
+#N canvas 0 110 1213 644 12;
 #N canvas 280 170 1320 704 fft-analysis 1;
 #X obj 94 511 *~;
 #X obj 55 511 *~;
