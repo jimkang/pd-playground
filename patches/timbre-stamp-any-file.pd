@@ -6,7 +6,7 @@
 #X obj 436 359 *~;
 #X obj 436 382 +~;
 #X obj 23 169 *~;
-#X obj 68 126 inlet~;
+#X obj 27 116 inlet~;
 #X obj 54 206 rfft~;
 #X obj 42 558 *~;
 #X obj 141 245 *~;
@@ -84,6 +84,7 @@ set 30;
 #X obj 276 556 snapshot-table 150-carrier-fft-imag-x-reduced-amp-factors
 ;
 #X obj 1069 501 mod 100;
+#X obj 278 113 snapshot-table 010-carrier-raw;
 #X connect 0 0 11 1;
 #X connect 0 0 74 0;
 #X connect 1 0 11 0;
@@ -95,6 +96,7 @@ set 30;
 #X connect 5 0 7 0;
 #X connect 5 0 63 0;
 #X connect 6 0 5 0;
+#X connect 6 0 76 0;
 #X connect 7 0 13 0;
 #X connect 7 0 13 1;
 #X connect 7 0 1 0;
