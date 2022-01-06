@@ -260,6 +260,9 @@ to make it work.;
 #X text 162 428 Typically sent from this message: 0 \, then 223316
 5063.85;
 #X text 139 455 comment;
+#X text 153 538 metro goes every second \, but if tabread4~ is still
+going \, it seems that pack does not proceed. Maybe it waits for all
+of the DSP in the chain to be done?;
 #X connect 0 0 13 0;
 #X connect 1 0 4 0;
 #X connect 1 0 50 0;
