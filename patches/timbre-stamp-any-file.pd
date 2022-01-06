@@ -1,5 +1,5 @@
 #N canvas 0 110 1213 644 12;
-#N canvas 239 178 1148 704 fft-analysis 1;
+#N canvas 78 152 1148 704 fft-analysis 1;
 #X obj 94 511 *~;
 #X obj 55 511 *~;
 #X obj 477 359 *~;
@@ -253,11 +253,18 @@ to make it work.;
 #X obj 456 487 logblock~ 005-info-raw-a 74;
 #X obj 169 503 logblock~ 010-carrier-raw-a 74;
 #X obj 307 32 block~ 1024 0;
-#X floatatom 16 441 10 0 0 0 - - -;
+#X floatatom 17 400 8 0 0 0 - - -;
+#X obj 172 397 print;
+#X text 227 397 "223316 5063.85" is typical output from this pack object.
+;
+#X text 162 428 Typically sent from this message: 0 \, then 223316
+5063.85;
+#X text 139 455 comment;
 #X connect 0 0 13 0;
 #X connect 1 0 4 0;
+#X connect 1 0 50 0;
 #X connect 3 0 0 0;
-#X connect 3 0 50 0;
+#X connect 3 0 51 0;
 #X connect 4 0 3 0;
 #X connect 5 0 10 1;
 #X connect 5 0 4 1;
