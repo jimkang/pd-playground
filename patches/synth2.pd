@@ -1,0 +1,33 @@
+#N canvas 685 220 915 606 12;
+#X obj 706 273 out1~;
+#N canvas 0 50 450 250 (subpatch) 0;
+#X array src-array 190084 float 2;
+#X coords 0 1 190084 -1 200 140 1 0 0;
+#X restore 366 28 graph;
+#N canvas 0 50 450 250 (subpatch) 0;
+#X array ctrl-array 16 float 3;
+#A 0 12 14 16 19 17 9 21 19 4 24 23 24 20 17 0 0;
+#X coords 0 24 16 0 200 140 1 0 0;
+#X restore 602 29 graph;
+#X obj 193 37 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144 -1
+-1;
+#X obj 693 222 catch~ sum;
+#X obj 193 57 send trigger;
+#X obj 54 62 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144 -1
+-1;
+#X floatatom 81 132 5 0 0 0 - - -;
+#X obj 83 160 tabread ctrl-array;
+#X floatatom 88 197 5 0 0 0 - - -;
+#X obj 97 240 + 36;
+#X msg 96 305 next \$1;
+#X obj 72 89 index-ticker 16 120;
+#X obj 96 400 clone synth2-voice 16 0.5 120;
+#X connect 3 0 5 0;
+#X connect 4 0 0 0;
+#X connect 6 0 12 0;
+#X connect 7 0 8 0;
+#X connect 8 0 9 0;
+#X connect 9 0 10 0;
+#X connect 10 0 11 0;
+#X connect 11 0 13 0;
+#X connect 12 0 7 0;
