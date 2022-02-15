@@ -1,0 +1,29 @@
+#N canvas 0 106 637 409 12;
+#X floatatom 411 162 5 0 0 0 - - -;
+#X msg 356 168 0;
+#X floatatom 383 288 5 0 0 0 - - -;
+#X text 13 4 Text ticker \$1: text filename to read semicolon-separated
+numbers from \$2: Count limit (start over at 0 before hitting this)
+\$3: Count bpm;
+#X obj 310 51 inlet;
+#X obj 442 112 index-ticker \$2 \$3;
+#X obj 327 357 outlet;
+#X obj 328 239 text get;
+#X obj 44 271 text define ticker-text-\$0;
+#X obj 117 134 symbol ticker-text-\$0;
+#X msg 41 176 read \$1;
+#X obj 316 84 t b b b b;
+#X obj 43 107 symbol \$1;
+#X connect 0 0 7 0;
+#X connect 1 0 7 1;
+#X connect 4 0 11 0;
+#X connect 5 0 0 0;
+#X connect 7 0 6 0;
+#X connect 7 1 2 0;
+#X connect 9 0 7 3;
+#X connect 10 0 8 0;
+#X connect 11 0 12 0;
+#X connect 11 1 9 0;
+#X connect 11 2 1 0;
+#X connect 11 3 5 0;
+#X connect 12 0 10 0;
